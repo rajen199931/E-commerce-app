@@ -5,48 +5,74 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-@Entity 
-// defines a class can be mapped to a table and identifies a class as an entity.
-public class Register {
+//defines a class can be mapped to a table and identifies a class as an entity.
+@Entity
+public class Register{
 	
 	@Id
-	@GeneratedValue(strategy =GenerationType.AUTO)
-	private String userId;
-	private String userName;
-	private Long contactNubmber;
-	private String email;
-	public Register() {
-		super();
-		
-	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public Long getContactNubmber() {
-		return contactNubmber;
-	}
-	public void setContactNubmber(Long contactNubmber) {
-		this.contactNubmber = contactNubmber;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private int userId;
 	
-	
-	
-	
+    private String username;
+    private String password;
+    private String email;
+    private String role;
+
+    public Register(int userId, String username, String password, String email, String role) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+    }
+
+    public Register() {
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+	@Override
+	public String toString() {
+		return "Register [userId=" + userId + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", role=" + role + "]";
+	}
 
 }
